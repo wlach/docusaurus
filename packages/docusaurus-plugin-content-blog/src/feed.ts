@@ -52,11 +52,11 @@ async function generateBlogFeed({
 
   const feed = new Feed({
     id: blogBaseUrl,
-    title: feedOptions.title ?? `${title} Blog`,
+    title: feedOptions.title ?? (options.title ?? `${title} Blog`),
     updated,
     language: feedOptions.language ?? locale,
     link: blogBaseUrl,
-    description: feedOptions.description ?? `${siteConfig.title} Blog`,
+    description: feedOptions.description ?? (options.description ?? `${siteConfig.title} Blog`),
     favicon: favicon ? normalizeUrl([siteUrl, baseUrl, favicon]) : undefined,
     copyright: feedOptions.copyright,
   });
